@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://producers.emta.xtee.riik.ee/producer/emta" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+	xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://producers.emta.xtee.riik.ee/producer/emta">
+	<import namespace="http://x-tee.riik.ee/xsd/xtee.xsd" schemaLocation="http://x-tee.riik.ee/xsd/xtee.xsd" />
+	<import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+
+	<complexType name="emtaFieAndmed_paring">
+		<all>
+			<element name="isikukood" type="string">
+				<annotation>
+					<appinfo>
+						<xtee:title>Isikukood</xtee:title>
+					</appinfo>
+				</annotation>
+			</element>
+		</all>
+	</complexType>
+	<complexType name="emtaFieAndmed_vastus">
+		<all>
+			<element name="kokku" nillable="true" type="string">
+				<annotation>
+					<appinfo>
+						<xtee:title>Tulemus</xtee:title>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="lisainfo" nillable="true" type="string">
+				<annotation>
+					<appinfo>
+						<xtee:title>Lisainfo</xtee:title>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="fieJada" nillable="true">
+				<annotation>
+					<appinfo>
+						<xtee:title>Perioodid</xtee:title>
+					</appinfo>
+				</annotation>
+				<complexType>
+					<complexContent>
+						<restriction base="SOAP-ENC:Array">
+							<sequence>
+								<element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:fieIsikAndmed" />
+							</sequence>
+						</restriction>
+					</complexContent>
+				</complexType>
+			</element>
+		</all>
+	</complexType>
+	<complexType name="fieIsikAndmed">
+		<all>
+			<element name="isikukood" nillable="true" type="string">
+				<annotation>
+					<appinfo>
+						<xtee:title>Isikukood</xtee:title>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="algus" nillable="true" type="string">
+				<annotation>
+					<appinfo>
+						<xtee:title>Algkuupäev</xtee:title>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="lopp" nillable="true" type="string">
+				<annotation>
+					<appinfo>
+						<xtee:title>Lõppkuupäev</xtee:title>
+					</appinfo>
+				</annotation>
+			</element>
+		</all>
+	</complexType>
+</schema>
